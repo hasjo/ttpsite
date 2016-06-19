@@ -8,7 +8,6 @@ services:
             - ./docker/nginx/site:/usr/share/nginx/html:ro
         links:
          - flask
-         - forum
     flask:
         build: docker/flask
         ports:
