@@ -3,7 +3,7 @@ services:
     nginx:
         build: docker/nginx/
         ports:
-         - "8080:80"
+         - "80:80"
         volumes:
             - ./docker/nginx/site:/usr/share/nginx/html:ro
         links:
@@ -16,8 +16,8 @@ services:
         volumes:
             - ./docker/flask:/workspace
     forum:
+        build: docker/phpbb
         ports:
          - "8082:80"
         volumes:
             - ./docker/phpbb/forum:/var/www/html
-        image: php:7-apache
