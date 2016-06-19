@@ -21,3 +21,15 @@ services:
          - "8082:80"
         volumes:
             - ./docker/phpbb/forum:/var/www/html
+        links:
+            - db:mysql
+    db:
+        env_file: pw.env
+        image: mariadb:latest
+        ports:
+         - "3306:3306"
+        environment:
+         - MYSQL_ROOT_PASSWORD=$DB_PASS
+         - MYSQL_DATABASE=$DB_DBNAME
+         - MYSQL_USER=$DB_USER
+         - MYSQL_PASSWORD=$DB_USERPASS
