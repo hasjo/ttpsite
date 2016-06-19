@@ -1,0 +1,23 @@
+version: '2'
+services:
+    nginx:
+        build: docker/nginx/
+        ports:
+         - "8080:80"
+        volumes:
+            - ./docker/nginx/site:/usr/share/nginx/html:ro
+        links:
+         - flask
+         - forum
+    flask:
+        build: docker/flask
+        ports:
+         - "8081:80"
+        volumes:
+            - ./docker/flask:/workspace
+    forum:
+        ports:
+         - "8082:80"
+        volumes:
+            - ./docker/phpbb/forum:/var/www/html
+        image: php:7-apache
