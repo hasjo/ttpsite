@@ -6,6 +6,7 @@ services:
          - "80:80"
         volumes:
             - ./docker/nginx/site:/usr/share/nginx/html:ro
+            - ./docker/nginx/certs:/etc/nginx/ssl
         links:
          - flask
     flask:
