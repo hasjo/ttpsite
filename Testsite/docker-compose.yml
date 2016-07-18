@@ -1,0 +1,17 @@
+version: '2'
+services:
+    nginx:
+        build: docker/nginx/
+        ports:
+         - "443:443"
+         - "80:80"
+        volumes:
+            - ./docker/nginx/site:/usr/share/nginx/html:ro
+        links:
+         - flask
+    flask:
+        build: docker/flask
+        ports:
+         - "8081:80"
+        volumes:
+            - ./docker/flask:/workspace
