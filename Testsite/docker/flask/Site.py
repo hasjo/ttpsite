@@ -12,11 +12,6 @@ def info():
     '''Returns the info template'''
     return render_template('info.html')
 
-@APP.route('/guild/test')
-def test():
-    '''Returns the info template'''
-    return render_template('index.html')
-
 @APP.route('/guild/apply')
 def apply():
     '''Returns the info template'''
